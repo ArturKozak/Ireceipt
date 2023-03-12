@@ -1,0 +1,104 @@
+include: package:lints/recommended.yaml
+
+linter:
+  rules:
+    # Avoid relative imports for files
+    always_use_package_imports: true
+
+    # Invoke cancel on instances of StreamSubscription
+    cancel_subscriptions: true
+
+    # Use key in widget constructors
+    use_key_in_widget_constructors: true
+
+    # Specify required on named parameter before other named parameters
+    always_put_required_named_parameters_first: true
+
+    # Avoid bool literals in conditional expressions
+    avoid_bool_literals_in_conditional_expressions: true
+
+    # Avoid catches without on clauses
+    avoid_catches_without_on_clauses: true
+
+    # Allow to catch Error or types that implement it
+    avoid_catching_errors: false
+
+    # Allow to use boolean parameters
+    avoid_positional_boolean_parameters: false
+
+    # Avoid redundant argument values
+    avoid_redundant_argument_values: true
+
+    # Avoid using await on anything which is not a future
+    await_only_futures: true
+
+    # Follow the conventions in the Effective Dart Guide
+    directives_ordering: true
+
+    # Avoid lines longer than 80 characters
+    lines_longer_than_80_chars: true
+
+    # Throw only instances of classes that extend Error or Exception
+    only_throw_errors: true
+
+    # Allow to use private types in public APIs
+    library_private_types_in_public_api: false
+
+    # Prefer declaring for-each loop variables as final 
+    prefer_final_in_for_each: true
+
+    # Prefer declaring variables as final
+    prefer_final_locals: true
+
+    # Only use double quotes for strings containing single quotes
+    prefer_single_quotes: true
+
+    # Use trailing commas for function call if it doesn't fit in a single line
+    require_trailing_commas: true
+
+    # Prefer use lighter widgets
+    sized_box_for_whitespace: true
+    sized_box_shrink_expand: true
+    use_colored_box: true
+    use_decorated_box: true
+
+    # Sort child properties last in widget instance creations
+    sort_child_properties_last: true
+
+    # Avoid returning an awaited expression
+    unnecessary_await_in_return: true
+
+    # Don't create a lambda when a tear-off will do
+    unnecessary_lambdas: true
+
+    # Where possible, use already defined const values
+    use_named_constants: true
+
+    # Use super-initializer parameters where possible
+    use_super_parameters: true
+
+    # To always use curly braces
+    curly_braces_in_flow_control_structures: true
+    
+    # This will remove lines such as `if (bool) doSomething()`
+    always_put_control_body_on_new_line: true
+
+    # Sort pub dependencies alphabetically.
+    sort_pub_dependencies: true
+
+    # Depend on referenced packages
+    depend_on_referenced_packages: true
+
+analyzer:
+  errors:
+    prefer_const_constructors: warning
+    prefer_relative_imports: warning
+    invalid_override_of_non_virtual_member: error
+    missing_return: error
+    missing_required_param: error
+    directives_ordering: error
+    unnecessary_new: error
+    unnecessary_this: error
+    unnecessary_const: error
+    todo: ignore
+
