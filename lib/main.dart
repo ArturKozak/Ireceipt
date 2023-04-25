@@ -53,17 +53,16 @@ class MyApp extends StatelessWidget {
         return child!;
       },
       theme: ThemeData(
-        // colorSchemeSeed: Color.fromARGB(255, 0, 0, 0),
         colorScheme: ColorScheme(
           brightness: Brightness.light,
-          primary: Color(0xff1B1B1B),
-          onPrimary: Color(0xff1B1B1B),
+          primary: Color(0xff2c2c2c),
+          onPrimary: Color(0xffe8e9ed),
           secondary: Color.fromARGB(255, 128, 128, 128),
           onSecondary: Color(0xff1B1B1B),
-          onSecondaryContainer: Color(0xff1B1B1B),
+          onSecondaryContainer: Color(0xffffffff),
           error: Color(0xffED1B2D),
           onError: Color(0xffED1B2D),
-          background: Color(0xffF3F3F3),
+          background: Color(0xfff2f5fa),
           onBackground: Color(0xffF3F3F3),
           surface: Color(0xffFFFFFF),
           onSurface: Color(0xffFFFFFF),

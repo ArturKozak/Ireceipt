@@ -55,7 +55,7 @@ class PageIndicator extends AnimatedWidget {
                   height: 10.0.h,
                   width: 10.0.w,
                   decoration: BoxDecoration(
-                    color: scheme.onSecondaryContainer,
+                    color: scheme.primary,
                     borderRadius: const BorderRadius.all(
                       Radius.circular(_indicatorRadius),
                     ),

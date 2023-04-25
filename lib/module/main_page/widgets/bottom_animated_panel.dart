@@ -47,7 +47,7 @@ class BottomAnimatedPanel extends WidgetBase {
                           style: TextStyle(
                             fontSize: 32.0.sp,
                             fontWeight: FontWeight.bold,
-                            color: scheme.onSecondaryContainer.withOpacity(
+                            color: scheme.primary.withOpacity(
                               context
                                   .read<MainAnimationCubit>()
                                   .calculateOpacity(),
@@ -87,7 +87,7 @@ class BottomAnimatedPanel extends WidgetBase {
                               context
                                   .read<MainAnimationCubit>()
                                   .hasFirstSheetPassedHalf,
-                              scheme.onSecondaryContainer,
+                              scheme.primary,
                             ),
                             child: Align(
                               alignment: Alignment.topCenter,

@@ -13,11 +13,9 @@ class TaxModel {
   @JsonKey(name: totalCostKey)
   double totalCost;
 
-
   TaxModel({
     required this.name,
     required this.totalCost,
-
   });
 
   factory TaxModel.fromJson(Map<String, dynamic> json) =>

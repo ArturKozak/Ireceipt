@@ -24,10 +24,10 @@ class TaxPanel extends WidgetBase {
       padding: EdgeInsets.all(AppConstants.padding).r,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: scheme.onSecondaryContainer,
+        color: scheme.primary,
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(25.0),
-          topRight: Radius.circular(25.0),
+          topLeft: Radius.circular(AppConstants.padding),
+          topRight: Radius.circular(AppConstants.padding),
         ).r,
       ),
       child: Column(
@@ -45,16 +45,16 @@ class TaxPanel extends WidgetBase {
                     style: TextStyle(
                       fontSize: 16.0.sp,
                       fontWeight: FontWeight.w600,
-                      color: scheme.background,
+                      color: scheme.onSecondaryContainer,
                     ),
                   ),
                   _textHorizontalSpace,
                   Text(
                     state.taxList[index].totalCost.toString(),
                     style: TextStyle(
-                      fontSize: 16.0.sp,
+                      fontSize: 15.0.sp,
                       fontWeight: FontWeight.w600,
-                      color: scheme.background,
+                      color: scheme.onSecondaryContainer,
                     ),
                   ),
                 ],
@@ -81,7 +81,7 @@ class TaxPanel extends WidgetBase {
                       style: TextStyle(
                         fontSize: 24.0.sp,
                         fontWeight: FontWeight.w600,
-                        color: scheme.onSecondaryContainer,
+                        color: scheme.primary,
                       ),
                     ),
                     _textHorizontalSpace,
@@ -90,7 +90,7 @@ class TaxPanel extends WidgetBase {
                       style: TextStyle(
                         fontSize: 22.0.sp,
                         fontWeight: FontWeight.w600,
-                        color: scheme.onSecondaryContainer,
+                        color: scheme.primary,
                       ),
                     ),
                   ],
@@ -101,6 +101,7 @@ class TaxPanel extends WidgetBase {
                     .read<ProductNameRepository>()
                     .addClearName(state.groupedProduct),
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: scheme.background,
                   padding: EdgeInsets.symmetric(
                     horizontal: AppConstants.padding,
                   ).r,
@@ -116,7 +117,7 @@ class TaxPanel extends WidgetBase {
                     style: TextStyle(
                       fontSize: 24.0.sp,
                       fontWeight: FontWeight.w700,
-                      color: scheme.onSecondaryContainer,
+                      color: scheme.primary,
                     ),
                   ),
                 ),
