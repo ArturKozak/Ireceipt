@@ -83,7 +83,7 @@ Route<T> circleEdgeRouteBuilder<T>(
     ),
     CustomRoute(
       page: CameraPage,
-      customRouteBuilder: circleEdgeRouteBuilder,
+      customRouteBuilder: fadeRouteBuilder,
     ),
   ],
 )

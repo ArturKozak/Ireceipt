@@ -38,10 +38,10 @@ class AppConstants {
     r'[0-9]\,?\s?[0-9]?[0-9]?[0-9]?\s?\*\s?[0-9]{1,3}\s?\,\s?[0-9]{1,3}',
   );
 
-  static const boxShadowMain = BoxShadow(
-    color: Color(0xff2c2c2c),
+  static final boxShadowMain = BoxShadow(
+    color: Color.fromARGB(255, 87, 87, 87).withOpacity(0.2),
     blurRadius: 20.0,
     spreadRadius: 4,
-    offset: Offset(0, 7),
+    offset: Offset(0, 5),
   );
 }

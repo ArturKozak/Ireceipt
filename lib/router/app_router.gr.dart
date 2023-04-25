@@ -57,8 +57,8 @@ class AppRouter extends _i6.RootStackRouter {
     CameraRoute.name: (routeData) {
       return _i6.CustomPage<dynamic>(
         routeData: routeData,
-        child: const _i3.CameraPage(),
-        customRouteBuilder: _i8.circleEdgeRouteBuilder,
+        child: _i6.WrappedRoute(child: const _i3.CameraPage()),
+        customRouteBuilder: _i8.fadeRouteBuilder,
         opaque: true,
         barrierDismissible: false,
       );

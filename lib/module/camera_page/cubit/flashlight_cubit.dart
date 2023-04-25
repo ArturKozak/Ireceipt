@@ -28,6 +28,6 @@ class FlashlightCubit extends Cubit<FlashlightState> {
       emit(FlashlightTurnOff());
     }
 
-    return context.read<CameraCubit>().controller!.setFlashMode(mode);
+    return context.read<CameraCubit>().controller.setFlashMode(mode);
   }
 }

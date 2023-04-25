@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:ireceipt/kit/page_base/widget_base.dart';
 import 'package:ireceipt/module/camera_page/widgets/flash_button.dart';
-import 'package:ireceipt/module/main_page/cubit/main_animation_cubit.dart';
 
 class BottomControlPanel extends WidgetBase {
   static const _bigCircleSize = 65.0;
@@ -27,56 +25,48 @@ class BottomControlPanel extends WidgetBase {
 
   @override
   Widget body(BuildContext context, ColorScheme scheme, Size size) {
-    return BlocBuilder<MainAnimationCubit, MainAnimationState>(
-      builder: (context, state) {
-        if (state is MainAnimationUpdate) {
-          return Stack(
-            children: [
-              Positioned(
-                right: _rightPosition,
-                bottom: _bottomPosition,
-                child: IconButton(
-                  onPressed: getText,
-                  icon: FaIcon(
-                    FontAwesomeIcons.solidImage,
-                    size: _iconSize,
-                    color: scheme.background,
-                  ),
+    return Stack(
+      children: [
+        Positioned(
+          right: _rightPosition,
+          bottom: _bottomPosition,
+          child: IconButton(
+            onPressed: getText,
+            icon: FaIcon(
+              FontAwesomeIcons.solidImage,
+              size: _iconSize,
+              color: scheme.background,
+            ),
+          ),
+        ),
+        FlashButton(setFlashMode: setFlashMode),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: IconButton(
+            onPressed: getTextFromPhoto,
+            icon: Container(
+              height: _bigCircleSize.h,
+              width: _bigCircleSize.w,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(
+                  color: scheme.background,
+                  width: 3,
                 ),
               ),
-              FlashButton(setFlashMode: setFlashMode),
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: IconButton(
-                  onPressed: getTextFromPhoto,
-                  icon: Container(
-                    height: _bigCircleSize.h,
-                    width: _bigCircleSize.w,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      border: Border.all(
-                        color: scheme.background,
-                        width: 3,
-                      ),
-                    ),
-                    child: Container(
-                      height: _smallCircleSize.h,
-                      width: _smallCircleSize.w,
-                      decoration: BoxDecoration(
-                        color: scheme.background,
-                        shape: BoxShape.circle,
-                      ),
-                    ),
-                  ),
+              child: Container(
+                height: _smallCircleSize.h,
+                width: _smallCircleSize.w,
+                decoration: BoxDecoration(
+                  color: scheme.background,
+                  shape: BoxShape.circle,
                 ),
               ),
-            ],
-          );
-        }
-
-        return SizedBox();
-      },
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

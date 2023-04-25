@@ -18,4 +18,8 @@ class AppRoute {
       ),
     );
   }
+
+  static void toCameraPage(BuildContext context) {
+    AutoRouter.of(context).push(CameraRoute());
+  }
 }
