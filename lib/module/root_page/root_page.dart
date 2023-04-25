@@ -37,7 +37,7 @@ class RootPage extends ReceiptPageBase {
                       child: child,
                     ),
                     Align(
-                      alignment: Alignment(0, -0.91),
+                      alignment: Alignment(0, -0.85),
                       child: PageIndicator(
                         itemCount: context.read<RootCubit>().pages.length,
                         controller: controller,
