@@ -29,7 +29,7 @@ class BottomInfoRow extends WidgetBase {
               style: TextStyle(
                 fontSize: 22.0.sp,
                 fontWeight: FontWeight.w500,
-                color: scheme.background,
+                color: scheme.primary,
               ),
             ),
           ),
@@ -37,7 +37,8 @@ class BottomInfoRow extends WidgetBase {
             width: _itemSize.w,
             height: _itemSize.h,
             decoration: BoxDecoration(
-              color: scheme.background,
+              color: scheme.primary,
+              boxShadow: [AppConstants.boxShadowMain],
               borderRadius: BorderRadius.circular(_borderRadius).r,
             ),
             alignment: AlignmentDirectional(0, 0),

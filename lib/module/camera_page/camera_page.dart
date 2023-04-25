@@ -27,11 +27,11 @@ class CameraPage extends WidgetBase {
                 context.read<MainAnimationCubit>().reset(),
             child: Stack(
               children: [
-                DecoratedBox(
-                  decoration: BoxDecoration(
-                    color: scheme.onSecondaryContainer,
-                  ),
-                  child: Center(
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      color: scheme.onSecondaryContainer,
+                    ),
                     child: CameraPreview(
                       context.read<CameraCubit>().controller!,
                       child: LayoutBuilder(

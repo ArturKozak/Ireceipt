@@ -29,6 +29,7 @@ class TopInfoRow extends WidgetBase {
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
+              boxShadow: [AppConstants.boxShadowMain],
             ),
             child: Image.network(
               'https://picsum.photos/seed/903/600',
@@ -43,7 +44,7 @@ class TopInfoRow extends WidgetBase {
                 style: TextStyle(
                   fontSize: 24.0.sp,
                   fontWeight: FontWeight.w600,
-                  color: scheme.background,
+                  color: scheme.primary,
                 ),
               ),
             ),

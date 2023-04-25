@@ -11,7 +11,7 @@ import 'package:ireceipt/util/app_constants.dart';
 class MainTopInfoPanel extends WidgetBase {
   static const _borderRadius = 25.0;
 
-  static final _infoContainerHeight = 175.0.h;
+  static final _infoContainerHeight = 180.0.h;
   static final _infoMarginContainer = EdgeInsets.fromLTRB(33, 150, 33, 0).r;
 
   const MainTopInfoPanel({super.key});
@@ -32,6 +32,7 @@ class MainTopInfoPanel extends WidgetBase {
             decoration: BoxDecoration(
               color: scheme.onSecondaryContainer,
               borderRadius: BorderRadius.circular(_borderRadius).r,
+              boxShadow: [AppConstants.boxShadowMain],
             ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,

@@ -1,18 +1,10 @@
 import 'package:flutter/cupertino.dart';
 
-class CurvedPainter extends CustomPainter {
-  final Color color;
-
-  CurvedPainter(
-    this.color,
-  );
+class CurvedPainter extends CustomClipper<Path> {
+  CurvedPainter();
 
   @override
-  void paint(Canvas canvas, Size size) {
-    final paint = Paint()
-      ..color = color
-      ..style = PaintingStyle.fill;
-
+  Path getClip(Size size) {
     final path = Path()
       ..lineTo(
         size.width * .0,
@@ -30,11 +22,11 @@ class CurvedPainter extends CustomPainter {
       )
       ..close();
 
-    canvas.drawPath(path, paint);
+    return path;
   }
 
   @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+  bool shouldReclip(covariant CustomClipper<Path> oldClipper) {
     return true;
   }
 }

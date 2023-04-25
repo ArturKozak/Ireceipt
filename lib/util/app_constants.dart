@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 
 class AppConstants {
@@ -35,5 +36,10 @@ class AppConstants {
   );
   static final quantityTwoExp = RegExp(
     r'[0-9]\,?\s?[0-9]?[0-9]?[0-9]?\s?\*\s?[0-9]{1,3}\s?\,\s?[0-9]{1,3}',
+  static const boxShadowMain = BoxShadow(
+    color: Color(0xff2c2c2c),
+    blurRadius: 20.0,
+    spreadRadius: 4,
+    offset: Offset(0, 7),
   );
 }

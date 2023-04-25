@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:ireceipt/kit/custom_widgets/curved_painter.dart';
+import 'package:ireceipt/kit/custom_widgets/custom_shadow_path.dart';
 import 'package:ireceipt/kit/page_base/widget_base.dart';
 import 'package:ireceipt/util/app_constants.dart';
 
@@ -22,11 +23,18 @@ class MainTopCustomPanel extends WidgetBase {
   ) {
     return Stack(
       children: [
-        SizedBox(
-          height: _topContainerHeight,
-          width: double.infinity,
-          child: CustomPaint(
-            painter: CurvedPainter(scheme.onSecondaryContainer),
+        ClipShadowPath(
+          shadow: BoxShadow(
+            color: scheme.onPrimary,
+            blurRadius: 20.0,
+            spreadRadius: 10,
+            offset: Offset(0, 7),
+          ),
+          clipper: CurvedPainter(),
+          child: Container(
+            height: _topContainerHeight,
+            width: double.infinity,
+            color: scheme.primary,
           ),
         ),
         Container(

@@ -39,17 +39,28 @@ class ReceiptConfirmPage extends ReceiptPageBase {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
-        backgroundColor: scheme.onSecondaryContainer,
+        backgroundColor: scheme.background,
+        bottomOpacity: 0.0,
         leading: IconButton(
           onPressed: () => Navigator.of(context).pop(),
           icon: FaIcon(
             FontAwesomeIcons.angleLeft,
             size: _iconSize,
-            color: scheme.background,
+            color: scheme.primary,
           ),
         ),
+        elevation: 0,
       ),
       backgroundColor: scheme.background,
+      bottomSheet: BlocBuilder<ReceiptConfirmCubit, ReceiptConfirmState>(
+        builder: (context, state) {
+          if (state is ReceiptConfirmCompleted) {
+            return TaxPanel(state: state);
+          }
+
+          return SizedBox();
+        },
+      ),
       body: BlocBuilder<ReceiptConfirmCubit, ReceiptConfirmState>(
         builder: (context, state) {
           if (state is ReceiptConfirmCompleted) {
@@ -60,7 +71,7 @@ class ReceiptConfirmPage extends ReceiptPageBase {
                     key: context.read<ReceiptConfirmCubit>().listKey,
                     initialItemCount: state.groupedProduct.length,
                     padding: EdgeInsets.only(
-                      bottom: 30.0,
+                      bottom: 0.36.sh,
                     ).r,
                     itemBuilder: (
                       BuildContext context,
