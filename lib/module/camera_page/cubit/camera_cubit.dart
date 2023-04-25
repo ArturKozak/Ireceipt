@@ -4,7 +4,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:ireceipt/module/main_page/cubit/main_animation_cubit.dart';
 import 'package:ireceipt/router/app_route.dart';
 import 'package:ireceipt/services/hud/hud.dart';
 import 'package:ireceipt/util/save.dart';
@@ -24,13 +23,11 @@ class CameraCubit extends Cubit<CameraState> {
 
     final result = await _textRecognizer.processImage(inputImage);
 
-    AppRoute.toReceiptConfirmPage(
+    return AppRoute.toReceiptConfirmPage(
       context,
       result,
       inputImage,
     );
-
-    return context.read<MainAnimationCubit>().reset();
   }
 
   void initControllers() {
