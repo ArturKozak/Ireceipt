@@ -44,7 +44,7 @@ class CameraPage extends ReceiptPageBase {
                     color: scheme.onSecondaryContainer,
                   ),
                   child: CameraPreview(
-                    context.read<CameraCubit>().controller!,
+                    context.read<CameraCubit>().controller,
                     child: LayoutBuilder(
                       builder: (
                         BuildContext context,

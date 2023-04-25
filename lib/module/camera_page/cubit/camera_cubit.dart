@@ -16,7 +16,7 @@ class CameraCubit extends Cubit<CameraState> {
   final _textRecognizer = TextRecognizer();
   final _picker = ImagePicker();
 
-  late CameraController? controller;
+  late CameraController controller;
 
   Future<void> _recognizeText(BuildContext context, String path) async {
     final inputImage = InputImage.fromFilePath(path);
@@ -30,20 +30,22 @@ class CameraCubit extends Cubit<CameraState> {
     );
   }
 
-  void initControllers() {
+  void initControllers() async {
     controller = CameraController(
       Save.cameras.elementAt(0),
       ResolutionPreset.max,
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
 
-    controller!.initialize();
+    await controller.initialize();
+
+    await controller.resumePreview();
 
     emit(CameraInitial());
   }
 
   void onViewFinderTap(TapDownDetails details, BoxConstraints constraints) {
-    final CameraController cameraController = controller!;
+    final CameraController cameraController = controller;
 
     final Offset offset = Offset(
       details.localPosition.dx / constraints.maxWidth,
@@ -75,7 +77,7 @@ class CameraCubit extends Cubit<CameraState> {
   Future<void> getTextFromPhoto(BuildContext context) async {
     HapticFeedback.vibrate();
 
-    final file = await controller!.takePicture();
+    final file = await controller.takePicture();
 
     return OverlayHud.of(context).duringScanning(
       _recognizeText(
