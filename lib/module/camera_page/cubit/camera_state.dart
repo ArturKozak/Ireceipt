@@ -4,5 +4,3 @@ part of 'camera_cubit.dart';
 abstract class CameraState {}
 
 class CameraInitial extends CameraState {}
-
-

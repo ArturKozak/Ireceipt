@@ -36,12 +36,12 @@ class TaxPanel extends WidgetBase {
             child: ListView.builder(
               shrinkWrap: true,
               physics: const NeverScrollableScrollPhysics(),
-              itemCount: state.taxList!.length,
+              itemCount: state.taxList.length,
               itemBuilder: (context, index) => Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    state.taxList![index].name.trim(),
+                    state.taxList[index].name.trim(),
                     style: TextStyle(
                       fontSize: 16.0.sp,
                       fontWeight: FontWeight.w600,
@@ -50,7 +50,7 @@ class TaxPanel extends WidgetBase {
                   ),
                   _textHorizontalSpace,
                   Text(
-                    state.taxList![index].totalCost.toString(),
+                    state.taxList[index].totalCost.toString(),
                     style: TextStyle(
                       fontSize: 15.0.sp,
                       fontWeight: FontWeight.w600,
