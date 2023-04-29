@@ -10,15 +10,13 @@ class ReceiptConfirmInitial extends ReceiptConfirmState {
 
 class ReceiptConfirmCompleted extends ReceiptConfirmState {
   final List<ReceiptProductModel> groupedProduct;
-  final List<Widget> positionedWidgets;
-  final List<TaxModel> taxList;
   final double totalSum;
+  final List<TaxModel>? taxList;
 
   ReceiptConfirmCompleted({
     required this.groupedProduct,
-    required this.positionedWidgets,
-    required this.taxList,
     required this.totalSum,
+    this.taxList,
   });
 
   ReceiptConfirmCompleted copyWith({
@@ -29,7 +27,6 @@ class ReceiptConfirmCompleted extends ReceiptConfirmState {
   }) {
     return ReceiptConfirmCompleted(
       groupedProduct: groupedProduct ?? this.groupedProduct,
-      positionedWidgets: positionedWidgets ?? this.positionedWidgets,
       taxList: taxList ?? this.taxList,
       totalSum: totalSum ?? this.totalSum,
     );
