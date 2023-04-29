@@ -18,7 +18,8 @@ ReceiptProductModel _$ReceiptProductModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ReceiptProductModelToJson(
-        ReceiptProductModel instance) =>
+  ReceiptProductModel instance,
+) =>
     <String, dynamic>{
       'name': instance.name,
       'totalCost': instance.totalCost,

@@ -8,7 +8,7 @@ part of 'tax_model.dart';
 
 TaxModel _$TaxModelFromJson(Map<String, dynamic> json) => TaxModel(
       name: json['name'] as String,
-      totalCost: (json['totalCost'] as num).toDouble(),
+      totalCost: (json['totalCost'] as num?)?.toDouble() ?? 0.0,
     );
 
 Map<String, dynamic> _$TaxModelToJson(TaxModel instance) => <String, dynamic>{
