@@ -11,12 +11,22 @@ class TaxModel {
   final String name;
 
   @JsonKey(name: totalCostKey)
-  double totalCost;
+  double? totalCost;
 
   TaxModel({
     required this.name,
-    required this.totalCost,
+    this.totalCost = 0.0,
   });
+
+  TaxModel copyWith({
+    String? name,
+    double? totalCost,
+  }) {
+    return TaxModel(
+      name: name ?? this.name,
+      totalCost: totalCost ?? this.totalCost,
+    );
+  }
 
   factory TaxModel.fromJson(Map<String, dynamic> json) =>
       _$TaxModelFromJson(json);
