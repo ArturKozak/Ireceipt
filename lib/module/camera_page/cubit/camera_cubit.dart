@@ -6,7 +6,7 @@ import 'package:google_ml_kit/google_ml_kit.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:ireceipt/router/app_route.dart';
 import 'package:ireceipt/services/hud/hud.dart';
-import 'package:ireceipt/util/save.dart';
+import 'package:ireceipt/util/valut.dart';
 
 part 'camera_state.dart';
 
@@ -32,7 +32,7 @@ class CameraCubit extends Cubit<CameraState> {
 
   void initControllers() async {
     controller = CameraController(
-      Save.cameras.elementAt(0),
+      Valut.cameras.elementAt(0),
       ResolutionPreset.max,
       imageFormatGroup: ImageFormatGroup.jpeg,
     );
