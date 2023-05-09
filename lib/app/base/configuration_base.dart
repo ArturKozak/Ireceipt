@@ -3,10 +3,10 @@ import 'package:ireceipt/data/models/receipt_product_model.dart/receipt_product_
 import 'package:ireceipt/data/models/tax_model/tax_model.dart';
 
 abstract class ConfigurationBase {
-  static final _commasSpaceExp = RegExp(r',\s');
+  static final _commasSpaceExp = RegExp(r',\s?');
   static final _letterSExp = RegExp(r'[A-Z]');
   static final _allSpaceExp = RegExp(r'\s+');
-  static final _nonLetterExp = RegExp(r'[!$%^&*()_+|~=`\-{}\[\]:\/;<>\s?,@#]');
+  static final _nonLetterExp = RegExp(r'[!$%^&*()_+|~=`\-{}\[\]:\/;<>?@#]');
 
   @protected
   final receiptParams = <String, RegExp>{};
@@ -21,14 +21,13 @@ abstract class ConfigurationBase {
     if (match == null) {
       return null;
     }
+    final specSymbols = match.replaceAll(_nonLetterExp, '');
 
-    final spacedText = match.replaceAll(_commasSpaceExp, '.');
+    final spacedText = specSymbols.replaceAll(_commasSpaceExp, '.');
 
     final convertText = spacedText.replaceAll(_letterSExp, '');
 
-    final specSymbols = convertText.replaceAll(_nonLetterExp, '');
-
-    final unSpacedNum = specSymbols.replaceAll(_allSpaceExp, '');
+    final unSpacedNum = convertText.replaceAll(_allSpaceExp, '');
 
     if (unSpacedNum.isEmpty) {
       return null;
