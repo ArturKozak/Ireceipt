@@ -9,7 +9,7 @@ class AppConstants {
   static const productNameCollection = 'productNameCollection';
 
   static final boxShadowMain = BoxShadow(
-    color: Color.fromARGB(255, 87, 87, 87).withOpacity(0.2),
+    color: Color(0xFF575757).withOpacity(0.2),
     blurRadius: 20.0,
     spreadRadius: 4,
     offset: Offset(0, 5),

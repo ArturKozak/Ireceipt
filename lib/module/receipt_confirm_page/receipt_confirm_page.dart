@@ -70,9 +70,6 @@ class ReceiptConfirmPage extends ReceiptPageBase {
                   child: AnimatedList(
                     key: context.read<ReceiptConfirmCubit>().listKey,
                     initialItemCount: state.groupedProduct.length,
-                    padding: EdgeInsets.only(
-                      bottom: 0.36.sh,
-                    ).r,
                     itemBuilder: (
                       BuildContext context,
                       int index,
@@ -81,10 +78,10 @@ class ReceiptConfirmPage extends ReceiptPageBase {
                       return context
                           .read<ReceiptConfirmCubit>()
                           .buildReceiptCard(
-                            state.groupedProduct[index],
                             state,
                             index,
                             animation,
+                            context,
                           );
                     },
                   ),

@@ -8,6 +8,11 @@ class ReceiptConfirmInitial extends ReceiptConfirmState {
   List<Object?> get props => [];
 }
 
+class ReceiptConfirmUpdate extends ReceiptConfirmState {
+  @override
+  List<Object?> get props => [];
+}
+
 class ReceiptConfirmCompleted extends ReceiptConfirmState {
   final List<ReceiptProductModel> groupedProduct;
   final double totalSum;

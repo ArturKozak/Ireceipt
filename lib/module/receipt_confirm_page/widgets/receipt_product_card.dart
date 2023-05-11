@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -13,15 +14,15 @@ class ReceiptProductCard extends WidgetBase {
   static final _rightPosition = 10.0.w;
 
   final ReceiptProductModel receiptProductModel;
+  final int index;
   final Animation<double> animation;
-  final VoidCallback onTap;
-  final ReceiptConfirmCompleted state;
+  final VoidCallback deleteTap;
 
   const ReceiptProductCard({
     required this.receiptProductModel,
     required this.animation,
-    required this.onTap,
-    required this.state,
+    required this.deleteTap,
+    required this.index,
     super.key,
   });
 
@@ -175,11 +176,28 @@ class ReceiptProductCard extends WidgetBase {
             Positioned(
               right: _rightPosition,
               child: IconButton(
-                onPressed: onTap,
+                onPressed: deleteTap,
                 icon: FaIcon(
                   FontAwesomeIcons.trash,
                   size: 16.r,
                   color: scheme.error,
+                ),
+              ),
+            ),
+            Positioned(
+              right: _rightPosition * 4,
+              child: IconButton(
+                onPressed: () =>
+                    context.read<ReceiptConfirmCubit>().showEditSheet(
+                          context: context,
+                          model: receiptProductModel,
+                          index: index,
+                          cubit: BlocProvider.of<ReceiptConfirmCubit>(context),
+                        ),
+                icon: FaIcon(
+                  FontAwesomeIcons.penToSquare,
+                  size: 16.r,
+                  color: Colors.amber[800],
                 ),
               ),
             ),

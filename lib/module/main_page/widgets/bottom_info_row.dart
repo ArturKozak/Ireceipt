@@ -27,7 +27,7 @@ class BottomInfoRow extends WidgetBase {
               'Your scanned receipts',
               textAlign: TextAlign.end,
               style: TextStyle(
-                fontSize: 22.0.sp,
+                fontSize: 16.0.sp,
                 fontWeight: FontWeight.w500,
                 color: scheme.primary,
               ),
